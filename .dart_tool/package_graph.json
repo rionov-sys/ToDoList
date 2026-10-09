@@ -21,7 +21,7 @@
     },
     {
       "name": "flutter_lints",
-      "version": "3.0.2",
+      "version": "6.0.0",
       "dependencies": [
         "lints"
       ]
@@ -46,7 +46,7 @@
     },
     {
       "name": "cupertino_icons",
-      "version": "1.0.9",
+      "version": "2.0.0",
       "dependencies": []
     },
     {
@@ -77,7 +77,7 @@
     },
     {
       "name": "intl",
-      "version": "0.19.0",
+      "version": "0.20.3",
       "dependencies": [
         "clock",
         "meta",
@@ -107,7 +107,7 @@
     },
     {
       "name": "lints",
-      "version": "3.0.0",
+      "version": "6.1.0",
       "dependencies": []
     },
     {

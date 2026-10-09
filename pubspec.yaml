@@ -14,7 +14,7 @@ dependencies:
   provider: ^6.1.2
 
   # Date & Time Utilities
-  intl: ^0.19.0
+  intl: ^0.20.3
 
   # Networking & HTTP (Production ready)
   dio: ^5.4.3+1
@@ -23,12 +23,12 @@ dependencies:
   shared_preferences: ^2.2.3
 
   # Icons & Aesthetics
-  cupertino_icons: ^1.0.8
+  cupertino_icons: ^2.0.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^3.0.0
+  flutter_lints: ^6.0.0
 
 flutter:
   uses-material-design: true
