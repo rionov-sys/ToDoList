@@ -3,105 +3,105 @@ import '../app/theme/app_colors.dart';
 import '../core/utils/date_formatter.dart';
 
 enum TaskStatus {
-  TODO,
-  IN_PROGRESS,
-  COMPLETED,
-  BLOCKED;
+  todo,
+  inProgress,
+  completed,
+  blocked;
 
   String get label {
     switch (this) {
-      case TaskStatus.TODO:
+      case TaskStatus.todo:
         return 'TO DO';
-      case TaskStatus.IN_PROGRESS:
+      case TaskStatus.inProgress:
         return 'IN PROGRESS';
-      case TaskStatus.COMPLETED:
+      case TaskStatus.completed:
         return 'COMPLETED';
-      case TaskStatus.BLOCKED:
+      case TaskStatus.blocked:
         return 'BLOCKED';
     }
   }
 
   Color get color {
     switch (this) {
-      case TaskStatus.TODO:
+      case TaskStatus.todo:
         return AppColors.todo;
-      case TaskStatus.IN_PROGRESS:
+      case TaskStatus.inProgress:
         return AppColors.inProgress;
-      case TaskStatus.COMPLETED:
+      case TaskStatus.completed:
         return AppColors.completed;
-      case TaskStatus.BLOCKED:
+      case TaskStatus.blocked:
         return AppColors.blocked;
     }
   }
 
   Color get containerColor {
     switch (this) {
-      case TaskStatus.TODO:
+      case TaskStatus.todo:
         return AppColors.todoContainer;
-      case TaskStatus.IN_PROGRESS:
+      case TaskStatus.inProgress:
         return AppColors.inProgressContainer;
-      case TaskStatus.COMPLETED:
+      case TaskStatus.completed:
         return AppColors.completedContainer;
-      case TaskStatus.BLOCKED:
+      case TaskStatus.blocked:
         return AppColors.blockedContainer;
     }
   }
 
   IconData get icon {
     switch (this) {
-      case TaskStatus.TODO:
+      case TaskStatus.todo:
         return Icons.radio_button_unchecked_rounded;
-      case TaskStatus.IN_PROGRESS:
+      case TaskStatus.inProgress:
         return Icons.timelapse_rounded;
-      case TaskStatus.COMPLETED:
+      case TaskStatus.completed:
         return Icons.check_circle_rounded;
-      case TaskStatus.BLOCKED:
+      case TaskStatus.blocked:
         return Icons.block_rounded;
     }
   }
 }
 
 enum TaskPriority {
-  LOW,
-  MEDIUM,
-  HIGH,
-  URGENT;
+  low,
+  medium,
+  high,
+  urgent;
 
   String get label {
     switch (this) {
-      case TaskPriority.LOW:
+      case TaskPriority.low:
         return 'LOW';
-      case TaskPriority.MEDIUM:
+      case TaskPriority.medium:
         return 'MEDIUM';
-      case TaskPriority.HIGH:
+      case TaskPriority.high:
         return 'HIGH';
-      case TaskPriority.URGENT:
+      case TaskPriority.urgent:
         return 'URGENT';
     }
   }
 
   Color get color {
     switch (this) {
-      case TaskPriority.LOW:
+      case TaskPriority.low:
         return AppColors.completed;
-      case TaskPriority.MEDIUM:
+      case TaskPriority.medium:
         return AppColors.inProgress;
-      case TaskPriority.HIGH:
+      case TaskPriority.high:
         return AppColors.secondary;
-      case TaskPriority.URGENT:
+      case TaskPriority.urgent:
         return AppColors.urgent;
     }
   }
 
   Color get containerColor {
     switch (this) {
-      case TaskPriority.LOW:
+      case TaskPriority.low:
         return AppColors.completedContainer;
-      case TaskPriority.MEDIUM:
+      case TaskPriority.medium:
         return AppColors.inProgressContainer;
-      case TaskPriority.HIGH:
+      case TaskPriority.high:
         return AppColors.surfaceContainer;
-      case TaskPriority.URGENT:
+      case TaskPriority.urgent:
         return AppColors.urgentContainer;
     }
   }
@@ -176,8 +176,8 @@ class TaskModel {
     this.categoryColorHex = '#4F46E5',
     required this.title,
     this.description = '',
-    this.status = TaskStatus.TODO,
-    this.priority = TaskPriority.MEDIUM,
+    this.status = TaskStatus.todo,
+    this.priority = TaskPriority.medium,
     this.progressPercentage = 0,
     required this.startTime,
     required this.dueTime,
@@ -190,7 +190,7 @@ class TaskModel {
     this.isPendingSync = false,
   });
 
-  bool get isCompleted => status == TaskStatus.COMPLETED;
+  bool get isCompleted => status == TaskStatus.completed;
   bool get isOverdue => !isCompleted && DateTime.now().isAfter(dueTime);
 
   int get completedSubtasksCount =>
@@ -265,12 +265,17 @@ class TaskModel {
       title: json['title'] as String,
       description: json['description'] as String? ?? '',
       status: TaskStatus.values.firstWhere(
-        (e) => e.name == json['status'],
-        orElse: () => TaskStatus.TODO,
+        (e) =>
+            e.name == json['status'] ||
+            e.name.toLowerCase() ==
+                (json['status'] as String? ?? '').replaceAll('_', '').toLowerCase(),
+        orElse: () => TaskStatus.todo,
       ),
       priority: TaskPriority.values.firstWhere(
-        (e) => e.name == json['priority'],
-        orElse: () => TaskPriority.MEDIUM,
+        (e) =>
+            e.name == json['priority'] ||
+            e.name.toLowerCase() == (json['priority'] as String? ?? '').toLowerCase(),
+        orElse: () => TaskPriority.medium,
       ),
       progressPercentage: (json['progress_percentage'] as num?)?.toInt() ?? 0,
       startTime: DateTime.parse(json['start_time'] as String),

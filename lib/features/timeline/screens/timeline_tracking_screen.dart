@@ -3,7 +3,6 @@ import 'package:provider/provider.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../core/utils/date_formatter.dart';
-import '../../../core/utils/snackbar_helper.dart';
 import '../../../models/task_model.dart';
 import '../../../providers/task_provider.dart';
 import '../../../providers/timeline_provider.dart';
@@ -406,7 +405,7 @@ class TimelineTrackingScreen extends StatelessWidget {
       );
     }
 
-    if (task.status == TaskStatus.IN_PROGRESS) {
+    if (task.status == TaskStatus.inProgress) {
       return Container(
         width: 22,
         height: 22,

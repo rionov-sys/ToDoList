@@ -23,7 +23,7 @@ class _CreateTaskScreenState extends State<CreateTaskScreen> {
 
   String _selectedCategory = 'Work';
   String _categoryColorHex = '#4F46E5';
-  TaskPriority _selectedPriority = TaskPriority.URGENT;
+  TaskPriority _selectedPriority = TaskPriority.urgent;
   
   late DateTime _startDate;
   late TimeOfDay _startTime;
@@ -146,8 +146,8 @@ class _CreateTaskScreenState extends State<CreateTaskScreen> {
       title: title,
       description: _descController.text.trim(),
       status: _progress == 100
-          ? TaskStatus.COMPLETED
-          : (_progress > 0 ? TaskStatus.IN_PROGRESS : TaskStatus.TODO),
+          ? TaskStatus.completed
+          : (_progress > 0 ? TaskStatus.inProgress : TaskStatus.todo),
       priority: _selectedPriority,
       progressPercentage: _progress,
       startTime: startDateTime,

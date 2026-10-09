@@ -324,13 +324,25 @@ class _KineticFocusScreenState extends State<KineticFocusScreen>
                   // Ambient Noise Toggle
                   PopupMenuButton<String>(
                     tooltip: 'Suara Relaksasi',
+                    initialValue: _ambientSound,
                     icon: const Icon(Icons.waves_rounded, color: AppColors.onSurfaceVariant),
                     onSelected: (sound) {
                       setState(() => _ambientSound = sound);
                       SnackBarHelper.showInfo(context, 'Suara fokus: $sound');
                     },
                     itemBuilder: (ctx) => ['Mute', 'Hujan Deras', 'Kafe Kopi', 'White Noise', 'Sungai Alami']
-                        .map((s) => PopupMenuItem(value: s, child: Text(s)))
+                        .map((s) => PopupMenuItem(
+                              value: s,
+                              child: Row(
+                                children: [
+                                  if (s == _ambientSound) ...[
+                                    const Icon(Icons.check, size: 18, color: AppColors.primary),
+                                    const SizedBox(width: 8),
+                                  ],
+                                  Text(s),
+                                ],
+                              ),
+                            ))
                         .toList(),
                   ),
                 ],

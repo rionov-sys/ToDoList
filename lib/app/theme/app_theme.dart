@@ -43,7 +43,7 @@ class AppTheme {
         iconTheme: IconThemeData(color: AppColors.onSurface),
         titleTextStyle: AppTypography.headlineMd,
       ),
-      cardTheme: CardTheme(
+      cardTheme: CardThemeData(
         color: AppColors.surfaceContainerLowest,
         elevation: 0,
         shape: RoundedRectangleBorder(

@@ -38,8 +38,8 @@ class TaskProvider extends ChangeNotifier {
   // Momentum & Bento Metrics
   int get totalTasksCount => _tasks.length;
   int get completedTasksCount => _tasks.where((t) => t.isCompleted).length;
-  int get inProgressTasksCount => _tasks.where((t) => t.status == TaskStatus.IN_PROGRESS).length;
-  int get urgentTasksCount => _tasks.where((t) => t.priority == TaskPriority.URGENT && !t.isCompleted).length;
+  int get inProgressTasksCount => _tasks.where((t) => t.status == TaskStatus.inProgress).length;
+  int get urgentTasksCount => _tasks.where((t) => t.priority == TaskPriority.urgent && !t.isCompleted).length;
 
   int get momentumPercentage {
     if (_tasks.isEmpty) return 0;
@@ -131,7 +131,7 @@ class TaskProvider extends ChangeNotifier {
     if (idx == -1) return false;
 
     final task = _tasks[idx];
-    final newStatus = task.isCompleted ? TaskStatus.IN_PROGRESS : TaskStatus.COMPLETED;
+    final newStatus = task.isCompleted ? TaskStatus.inProgress : TaskStatus.completed;
     final newProgress = task.isCompleted ? 50 : 100;
 
     return updateTaskProgress(
@@ -161,9 +161,9 @@ class TaskProvider extends ChangeNotifier {
       final completedCount = updatedSubtasks.where((s) => s.isCompleted).length;
       newProgress = ((completedCount / updatedSubtasks.length) * 100).round();
       if (newProgress == 100) {
-        newStatus = TaskStatus.COMPLETED;
-      } else if (newProgress > 0 && newStatus == TaskStatus.TODO) {
-        newStatus = TaskStatus.IN_PROGRESS;
+        newStatus = TaskStatus.completed;
+      } else if (newProgress > 0 && newStatus == TaskStatus.todo) {
+        newStatus = TaskStatus.inProgress;
       }
     }
 

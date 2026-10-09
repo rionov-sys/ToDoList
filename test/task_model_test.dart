@@ -12,8 +12,8 @@ void main() {
         userId: 'usr_test_1',
         title: 'Unit Test Task',
         description: 'Test description',
-        status: TaskStatus.IN_PROGRESS,
-        priority: TaskPriority.URGENT,
+        status: TaskStatus.inProgress,
+        priority: TaskPriority.urgent,
         progressPercentage: 50,
         startTime: now,
         dueTime: now.add(const Duration(hours: 2)),
@@ -34,8 +34,8 @@ void main() {
 
       expect(fromJson.id, task.id);
       expect(fromJson.title, task.title);
-      expect(fromJson.status, TaskStatus.IN_PROGRESS);
-      expect(fromJson.priority, TaskPriority.URGENT);
+      expect(fromJson.status, TaskStatus.inProgress);
+      expect(fromJson.priority, TaskPriority.urgent);
       expect(fromJson.subtasks.length, 2);
     });
 

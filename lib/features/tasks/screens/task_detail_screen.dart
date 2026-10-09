@@ -89,9 +89,9 @@ class _TaskDetailScreenState extends State<TaskDetailScreen> {
                       setModalState(() {
                         newPercentage = val.round();
                         if (newPercentage == 100) {
-                          newStatus = TaskStatus.COMPLETED;
-                        } else if (newPercentage > 0 && newStatus == TaskStatus.TODO) {
-                          newStatus = TaskStatus.IN_PROGRESS;
+                          newStatus = TaskStatus.completed;
+                        } else if (newPercentage > 0 && newStatus == TaskStatus.todo) {
+                          newStatus = TaskStatus.inProgress;
                         }
                       });
                     },
@@ -319,7 +319,7 @@ class _TaskDetailScreenState extends State<TaskDetailScreen> {
                         if (newStatus != null) {
                           taskProvider.updateTaskProgress(
                             taskId: task.id,
-                            progressPercentage: newStatus == TaskStatus.COMPLETED ? 100 : task.progressPercentage,
+                            progressPercentage: newStatus == TaskStatus.completed ? 100 : task.progressPercentage,
                             status: newStatus,
                             note: 'Status diubah ke ${newStatus.label}',
                           );
@@ -495,7 +495,7 @@ class _TaskDetailScreenState extends State<TaskDetailScreen> {
                     borderRadius: BorderRadius.circular(14),
                   ),
                   child: const Center(
-                    child: const Text('Belum ada log aktivitas timeline.', style: AppTypography.bodySm),
+                    child: Text('Belum ada log aktivitas timeline.', style: AppTypography.bodySm),
                   ),
                 )
               else
