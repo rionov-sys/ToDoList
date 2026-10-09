@@ -1,0 +1,4 @@
+storePassword=PASSWORD_KEYSTORE_ANDA
+keyPassword=PASSWORD_KEY_ANDA
+keyAlias=chronos_key_alias
+storeFile=../upload-keystore.jks
