@@ -165,7 +165,7 @@ class CalendarScreen extends StatelessWidget {
                   border: Border.all(color: AppColors.outlineHairline),
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.black.withOpacity(0.02),
+                      color: Colors.black.withValues(alpha: 0.02),
                       blurRadius: 12,
                       offset: const Offset(0, 4),
                     ),
@@ -182,7 +182,7 @@ class CalendarScreen extends StatelessWidget {
                                 child: Center(
                                   child: Text(
                                     d,
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                       fontFamily: AppTypography.fontHeading,
                                       fontSize: 12,
                                       fontWeight: FontWeight.bold,
@@ -232,7 +232,7 @@ class CalendarScreen extends StatelessWidget {
                       children: [
                         const Icon(Icons.event_available_rounded, size: 36, color: AppColors.outline),
                         const SizedBox(height: 8),
-                        Text('Tidak ada agenda untuk tanggal ini.', style: AppTypography.bodySm),
+                        const Text('Tidak ada agenda untuk tanggal ini.', style: AppTypography.bodySm),
                         const SizedBox(height: 12),
                         OutlinedButton.icon(
                           onPressed: () {
@@ -342,7 +342,7 @@ class CalendarScreen extends StatelessWidget {
             boxShadow: isSelected
                 ? [
                     BoxShadow(
-                      color: Colors.black.withOpacity(0.04),
+                      color: Colors.black.withValues(alpha: 0.04),
                       blurRadius: 4,
                       offset: const Offset(0, 1),
                     ),
@@ -434,7 +434,7 @@ class CalendarScreen extends StatelessWidget {
             decoration: BoxDecoration(
               color: isSelected
                   ? AppColors.primary
-                  : (isToday ? AppColors.primaryFixed.withOpacity(0.4) : Colors.transparent),
+                  : (isToday ? AppColors.primaryFixed.withValues(alpha: 0.4) : Colors.transparent),
               borderRadius: BorderRadius.circular(12),
               border: isToday && !isSelected
                   ? Border.all(color: AppColors.primary, width: 1.5)

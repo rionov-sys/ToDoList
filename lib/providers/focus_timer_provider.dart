@@ -15,7 +15,7 @@ class FocusTimerProvider extends ChangeNotifier {
   TaskModel? _boundTask;
   int _completedSessionsToday = 3;
   int _totalFocusMinutesToday = 75;
-  int _sessionGoal = 4;
+  final int _sessionGoal = 4;
 
   FocusMode get currentMode => _currentMode;
   TimerState get timerState => _timerState;

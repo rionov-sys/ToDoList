@@ -31,7 +31,7 @@ class _CreateTaskScreenState extends State<CreateTaskScreen> {
   late TimeOfDay _dueTime;
 
   int _progress = 0;
-  bool _isRecurring = false;
+  final bool _isRecurring = false;
   bool _isLoading = false;
 
   final List<SubTaskModel> _subtasks = [
@@ -245,7 +245,7 @@ class _CreateTaskScreenState extends State<CreateTaskScreen> {
               const SizedBox(height: 16),
 
               // Categories Chips
-              Text('Kategori & Tag', style: AppTypography.labelMd),
+              const Text('Kategori & Tag', style: AppTypography.labelMd),
               const SizedBox(height: 8),
               Wrap(
                 spacing: 8,
@@ -282,7 +282,7 @@ class _CreateTaskScreenState extends State<CreateTaskScreen> {
               const SizedBox(height: 16),
 
               // Priority Selector Pills
-              Text('Tingkat Prioritas', style: AppTypography.labelMd),
+              const Text('Tingkat Prioritas', style: AppTypography.labelMd),
               const SizedBox(height: 8),
               Row(
                 children: TaskPriority.values.map((priority) {
@@ -299,7 +299,7 @@ class _CreateTaskScreenState extends State<CreateTaskScreen> {
                             color: isSelected ? priority.color : priority.containerColor,
                             borderRadius: BorderRadius.circular(10),
                             border: Border.all(
-                              color: isSelected ? priority.color : priority.color.withOpacity(0.3),
+                              color: isSelected ? priority.color : priority.color.withValues(alpha: 0.3),
                             ),
                           ),
                           child: Center(
@@ -321,7 +321,7 @@ class _CreateTaskScreenState extends State<CreateTaskScreen> {
               const SizedBox(height: 16),
 
               // Date & Time Scheduling Cards
-              Text('Jadwal Pengerjaan (Timeline)', style: AppTypography.labelMd),
+              const Text('Jadwal Pengerjaan (Timeline)', style: AppTypography.labelMd),
               const SizedBox(height: 8),
               Container(
                 padding: const EdgeInsets.all(14),
@@ -337,7 +337,7 @@ class _CreateTaskScreenState extends State<CreateTaskScreen> {
                       children: [
                         const Icon(Icons.play_circle_outline_rounded, color: AppColors.primary, size: 20),
                         const SizedBox(width: 8),
-                        Text('Mulai:', style: AppTypography.bodySm),
+                        const Text('Mulai:', style: AppTypography.bodySm),
                         const Spacer(),
                         InkWell(
                           onTap: () => _pickDate(isStart: true),
@@ -366,7 +366,7 @@ class _CreateTaskScreenState extends State<CreateTaskScreen> {
                       children: [
                         const Icon(Icons.flag_outlined, color: AppColors.urgent, size: 20),
                         const SizedBox(width: 8),
-                        Text('Deadline:', style: AppTypography.bodySm),
+                        const Text('Deadline:', style: AppTypography.bodySm),
                         const Spacer(),
                         InkWell(
                           onTap: () => _pickDate(isStart: false),
@@ -408,7 +408,7 @@ class _CreateTaskScreenState extends State<CreateTaskScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text('Subtugas (${_subtasks.length})', style: AppTypography.labelMd),
-                  Text('Opsional', style: AppTypography.bodySm),
+                  const Text('Opsional', style: AppTypography.bodySm),
                 ],
               ),
               const SizedBox(height: 8),

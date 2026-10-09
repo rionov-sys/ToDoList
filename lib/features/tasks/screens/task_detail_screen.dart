@@ -70,7 +70,7 @@ class _TaskDetailScreenState extends State<TaskDetailScreen> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text('Catat Log Progres Timeline', style: AppTypography.headlineSm),
+                      const Text('Catat Log Progres Timeline', style: AppTypography.headlineSm),
                       IconButton(
                         icon: const Icon(Icons.close_rounded),
                         onPressed: () => Navigator.pop(ctx),
@@ -97,10 +97,10 @@ class _TaskDetailScreenState extends State<TaskDetailScreen> {
                     },
                   ),
                   const SizedBox(height: 8),
-                  Text('Status Baru:', style: AppTypography.labelMd),
+                  const Text('Status Baru:', style: AppTypography.labelMd),
                   const SizedBox(height: 6),
                   DropdownButtonFormField<TaskStatus>(
-                    value: newStatus,
+                    initialValue: newStatus,
                     items: TaskStatus.values.map((s) {
                       return DropdownMenuItem(
                         value: s,
@@ -301,7 +301,7 @@ class _TaskDetailScreenState extends State<TaskDetailScreen> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text('Status Pekerjaan', style: AppTypography.labelSm),
+                          const Text('Status Pekerjaan', style: AppTypography.labelSm),
                           Text(task.status.label, style: AppTypography.labelMd.copyWith(color: task.status.color)),
                         ],
                       ),
@@ -367,7 +367,7 @@ class _TaskDetailScreenState extends State<TaskDetailScreen> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text('Tracking Progres', style: AppTypography.labelMd),
+                        const Text('Tracking Progres', style: AppTypography.labelMd),
                         Text(
                           '${task.progressPercentage}%',
                           style: AppTypography.headlineSm.copyWith(
@@ -411,7 +411,7 @@ class _TaskDetailScreenState extends State<TaskDetailScreen> {
 
               // Description Details Card
               if (task.description.isNotEmpty) ...[
-                Text('Deskripsi Tugas', style: AppTypography.labelMd),
+                const Text('Deskripsi Tugas', style: AppTypography.labelMd),
                 const SizedBox(height: 6),
                 Container(
                   width: double.infinity,
@@ -434,7 +434,7 @@ class _TaskDetailScreenState extends State<TaskDetailScreen> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text('Subtugas Target', style: AppTypography.labelMd),
+                    const Text('Subtugas Target', style: AppTypography.labelMd),
                     Text(
                       '${task.completedSubtasksCount}/${task.totalSubtasksCount} selesai',
                       style: AppTypography.monoTime,
@@ -476,7 +476,7 @@ class _TaskDetailScreenState extends State<TaskDetailScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text('Historis Log Timeline', style: AppTypography.labelMd),
+                  const Text('Historis Log Timeline', style: AppTypography.labelMd),
                   IconButton(
                     icon: const Icon(Icons.add_circle_outline_rounded, color: AppColors.primary, size: 20),
                     onPressed: () => _showAddProgressLogDialog(task),
@@ -494,8 +494,8 @@ class _TaskDetailScreenState extends State<TaskDetailScreen> {
                     color: AppColors.surfaceContainerLowest,
                     borderRadius: BorderRadius.circular(14),
                   ),
-                  child: Center(
-                    child: Text('Belum ada log aktivitas timeline.', style: AppTypography.bodySm),
+                  child: const Center(
+                    child: const Text('Belum ada log aktivitas timeline.', style: AppTypography.bodySm),
                   ),
                 )
               else

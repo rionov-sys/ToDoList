@@ -78,7 +78,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         style: AppTypography.labelSm.copyWith(letterSpacing: 1.0),
                       ),
                       const SizedBox(height: 2),
-                      Text('Profil & Sinkronisasi', style: AppTypography.headlineSm),
+                      const Text('Profil & Sinkronisasi', style: AppTypography.headlineSm),
                     ],
                   ),
                   Container(
@@ -121,7 +121,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   border: Border.all(color: AppColors.outlineHairline),
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.black.withOpacity(0.03),
+                      color: Colors.black.withValues(alpha: 0.03),
                       blurRadius: 16,
                       offset: const Offset(0, 4),
                     ),
@@ -138,7 +138,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         borderRadius: BorderRadius.circular(18),
                         boxShadow: [
                           BoxShadow(
-                            color: AppColors.primary.withOpacity(0.25),
+                            color: AppColors.primary.withValues(alpha: 0.25),
                             blurRadius: 12,
                             offset: const Offset(0, 4),
                           ),
@@ -236,10 +236,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     const SizedBox(height: 12),
                     SwitchListTile(
                       value: _autoSync,
-                      activeColor: AppColors.primary,
+                      activeThumbColor: AppColors.primary,
                       contentPadding: EdgeInsets.zero,
-                      title: Text('Otomatis Sinkronisasi ke Cloud', style: AppTypography.bodyMd),
-                      subtitle: Text('Mengunggah perubahan lokal saat terhubung online', style: AppTypography.bodySm),
+                      title: const Text('Otomatis Sinkronisasi ke Cloud', style: AppTypography.bodyMd),
+                      subtitle: const Text('Mengunggah perubahan lokal saat terhubung online', style: AppTypography.bodySm),
                       onChanged: (v) => setState(() => _autoSync = v),
                     ),
                     const Divider(height: 16, color: AppColors.outlineHairline),
@@ -249,7 +249,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text('Storage Footprint Cache', style: AppTypography.bodySm),
+                            const Text('Storage Footprint Cache', style: AppTypography.bodySm),
                             Text('Isar Local DB: 4.2 MB', style: AppTypography.labelSm.copyWith(fontWeight: FontWeight.bold)),
                           ],
                         ),
@@ -286,20 +286,20 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('Preferensi Chronos', style: AppTypography.labelMd),
+                    const Text('Preferensi Chronos', style: AppTypography.labelMd),
                     const SizedBox(height: 8),
                     SwitchListTile(
                       value: _notifications,
-                      activeColor: AppColors.primary,
+                      activeThumbColor: AppColors.primary,
                       contentPadding: EdgeInsets.zero,
-                      title: Text('Pengingat & Notifikasi Tenggat', style: AppTypography.bodyMd),
+                      title: const Text('Pengingat & Notifikasi Tenggat', style: AppTypography.bodyMd),
                       onChanged: (v) => setState(() => _notifications = v),
                     ),
                     SwitchListTile(
                       value: _hapticFeedback,
-                      activeColor: AppColors.primary,
+                      activeThumbColor: AppColors.primary,
                       contentPadding: EdgeInsets.zero,
-                      title: Text('Getaran Haptic (Kinetic Feedback)', style: AppTypography.bodyMd),
+                      title: const Text('Getaran Haptic (Kinetic Feedback)', style: AppTypography.bodyMd),
                       onChanged: (v) => setState(() => _hapticFeedback = v),
                     ),
                   ],
@@ -312,14 +312,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
                 tileColor: AppColors.surfaceContainerLowest,
                 leading: const Icon(Icons.lock_reset_rounded, color: AppColors.onSurfaceVariant),
-                title: Text('Ganti Kata Sandi', style: AppTypography.bodyMd),
+                title: const Text('Ganti Kata Sandi', style: AppTypography.bodyMd),
                 trailing: const Icon(Icons.chevron_right_rounded),
                 onTap: () => SnackBarHelper.showInfo(context, 'Fitur keamanan akun segera hadir.'),
               ),
               const SizedBox(height: 8),
               ListTile(
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-                tileColor: AppColors.urgentContainer.withOpacity(0.5),
+                tileColor: AppColors.urgentContainer.withValues(alpha: 0.5),
                 leading: const Icon(Icons.logout_rounded, color: AppColors.urgent),
                 title: Text('Keluar dari Akun', style: AppTypography.bodyMd.copyWith(color: AppColors.urgent, fontWeight: FontWeight.bold)),
                 onTap: _confirmLogout,

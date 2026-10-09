@@ -36,7 +36,7 @@ class TimelineTrackingScreen extends StatelessWidget {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('Timeline Pengerjaan', style: AppTypography.headlineSm),
+                      const Text('Timeline Pengerjaan', style: AppTypography.headlineSm),
                       const SizedBox(height: 2),
                       Row(
                         children: [
@@ -116,7 +116,7 @@ class TimelineTrackingScreen extends StatelessWidget {
                         boxShadow: isSelected
                             ? [
                                 BoxShadow(
-                                  color: AppColors.primary.withOpacity(0.25),
+                                  color: AppColors.primary.withValues(alpha: 0.25),
                                   blurRadius: 10,
                                   offset: const Offset(0, 4),
                                 ),
@@ -209,7 +209,7 @@ class TimelineTrackingScreen extends StatelessWidget {
                               style: AppTypography.headlineSm.copyWith(fontWeight: FontWeight.bold),
                             ),
                             const SizedBox(height: 6),
-                            Text(
+                            const Text(
                               'Belum ada tugas terjadwal pada hari atau filter waktu ini.',
                               style: AppTypography.bodySm,
                               textAlign: TextAlign.center,
@@ -278,11 +278,11 @@ class TimelineTrackingScreen extends StatelessWidget {
                     color: AppColors.surfaceContainerLowest,
                     borderRadius: BorderRadius.circular(16),
                     border: Border.all(
-                      color: task.isCompleted ? AppColors.completed.withOpacity(0.3) : AppColors.outlineHairline,
+                      color: task.isCompleted ? AppColors.completed.withValues(alpha: 0.3) : AppColors.outlineHairline,
                     ),
                     boxShadow: [
                       BoxShadow(
-                        color: Colors.black.withOpacity(0.02),
+                        color: Colors.black.withValues(alpha: 0.02),
                         blurRadius: 8,
                         offset: const Offset(0, 2),
                       ),
@@ -415,7 +415,7 @@ class TimelineTrackingScreen extends StatelessWidget {
           shape: BoxShape.circle,
           boxShadow: [
             BoxShadow(
-              color: AppColors.primary.withOpacity(0.35),
+              color: AppColors.primary.withValues(alpha: 0.35),
               blurRadius: 8,
               spreadRadius: 2,
             ),

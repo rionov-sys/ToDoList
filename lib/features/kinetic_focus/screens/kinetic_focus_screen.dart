@@ -81,7 +81,7 @@ class _KineticFocusScreenState extends State<KineticFocusScreen>
                   border: Border.all(color: AppColors.outlineHairline),
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.black.withOpacity(0.02),
+                      color: Colors.black.withValues(alpha: 0.02),
                       blurRadius: 8,
                       offset: const Offset(0, 2),
                     ),
@@ -103,7 +103,7 @@ class _KineticFocusScreenState extends State<KineticFocusScreen>
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text('Fokus Pada Tugas:', style: AppTypography.labelSm),
+                          const Text('Fokus Pada Tugas:', style: AppTypography.labelSm),
                           const SizedBox(height: 2),
                           Text(
                             boundTask?.title ?? 'Fokus Bebas (Deep Work)',
@@ -193,7 +193,7 @@ class _KineticFocusScreenState extends State<KineticFocusScreen>
                                 shape: BoxShape.circle,
                                 boxShadow: [
                                   BoxShadow(
-                                    color: AppColors.primary.withOpacity(0.18),
+                                    color: AppColors.primary.withValues(alpha: 0.18),
                                     blurRadius: 36,
                                     spreadRadius: 8,
                                   ),
@@ -202,13 +202,13 @@ class _KineticFocusScreenState extends State<KineticFocusScreen>
                             ),
 
                           // Background Track
-                          SizedBox(
+                          const SizedBox(
                             width: 220,
                             height: 220,
                             child: CircularProgressIndicator(
                               value: 1.0,
                               strokeWidth: 8,
-                              valueColor: const AlwaysStoppedAnimation<Color>(
+                              valueColor: AlwaysStoppedAnimation<Color>(
                                 AppColors.surfaceContainerHigh,
                               ),
                             ),
@@ -304,7 +304,7 @@ class _KineticFocusScreenState extends State<KineticFocusScreen>
                         shape: BoxShape.circle,
                         boxShadow: [
                           BoxShadow(
-                            color: AppColors.primary.withOpacity(0.35),
+                            color: AppColors.primary.withValues(alpha: 0.35),
                             blurRadius: 18,
                             offset: const Offset(0, 6),
                           ),
@@ -348,7 +348,7 @@ class _KineticFocusScreenState extends State<KineticFocusScreen>
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('Statistik Fokus Hari Ini', style: AppTypography.labelMd),
+                    const Text('Statistik Fokus Hari Ini', style: AppTypography.labelMd),
                     const SizedBox(height: 12),
                     Row(
                       children: [

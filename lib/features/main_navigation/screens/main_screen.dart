@@ -40,7 +40,7 @@ class _MainScreenState extends State<MainScreen> {
         preferredSize: const Size.fromHeight(60),
         child: Container(
           decoration: BoxDecoration(
-            color: AppColors.surface.withOpacity(0.95),
+            color: AppColors.surface.withValues(alpha: 0.95),
             border: const Border(bottom: BorderSide(color: AppColors.outlineHairline)),
           ),
           child: SafeArea(
